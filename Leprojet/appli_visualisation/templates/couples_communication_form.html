@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Application de visualisation de données Enron</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <style>
+    /* ... styles pour la mise en forme de la page ... */
+    .marge1 {
+      margin-left: 1.8em;
+    }
+    .marge2 {
+      margin-left: 1.5em;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Pour les pages de recherche où les tables ne sont pas modifiée par le css -->
+  <table class="barre" width="100%">
+    <tr>
+      <td width=80 align="center">
+        <img src="https://cdn1.iconfinder.com/data/icons/gradient-android-apps/64/1-22-128.png" height=40></img>
+        <br>
+        <a href="/appli_visualisation">
+          <span>Accueil</span>
+        </a>
+      </td>
+      <td align="center">
+        <font style="font-size:20px"><h1>Application de visualisation de données Enron</h1></font>
+      </td>
+    </tr>
+  </table>
+
+  <h2 align="center">Recherche de couples d'employés</h2>
+  <form method="post">
+    {% csrf_token %}
+    <label for="start_date">Date de début :</label>
+    <input type="date" id="start_date" name="start_date"><br><br>
+    <label for="end_date">Date de fin :</label>
+    <input type="date" id="end_date" name="end_date"><br><br>
+    <label for="threshold">Seuil :</label>
+    <input type="number" id="threshold" name="threshold"><br><br>
+    <input type="submit" value="Rechercher">
+  </form>
+</body>
+</html>

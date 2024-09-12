@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Application de visualisation de données Enron</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <style>
+    /* ... styles pour la mise en forme de la page ... */
+    .container {
+      margin: auto;
+      width: 50%;
+      text-align: center;
+    }
+    .button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 10px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+
+<body>
+
+  <table class="barre" width="100%">
+    <tr>
+      <td width=80 align="center">
+        <img src="https://cdn1.iconfinder.com/data/icons/gradient-android-apps/64/1-22-128.png" height=40></img>
+        <br>
+        <a href="/appli_visualisation">
+          <span>Accueil</span>
+        </a>
+      </td>
+      <td align="center">
+        <font style="font-size:20px"><h1>Application de visualisation de données Enron</h1></font>
+      </td>
+    </tr>
+  </table>
+
+  <div class="container">
+    
+    <div>
+      <a href="recherche_employes/">
+        <button class="button">Recherche d'employés</button>
+      </a>
+    </div>
+
+    <div>
+      <a href="employes_par_nbr/">
+        <button class="button">Employés par nombre de mails</button>
+      </a>
+    </div>
+
+    <div>
+      <a href="employee_communication/">
+        <button class="button">Employés par communication</button>
+      </a>
+    </div>
+
+    <div>
+      <a href="couples_communication/">
+        <button class="button">Couples d'employés par communication</button>
+      </a>
+    </div>
+
+    <div>
+      <a href="jours_plus_echanges/">
+        <button class="button">Jours avec plus d'échanges</button>
+      </a>
+    </div>
+
+    <div>
+      <a href="mots_cles/">
+        <button class="button">Recherche de mails par mots-clés</button>
+      </a>
+    </div>
+
+    <div>
+      <a href="contenu_conversations/">
+        <button class="button">Contenu des conversations</button>
+      </a>
+    </div>
+  </div>
+
+</body>
+</html>

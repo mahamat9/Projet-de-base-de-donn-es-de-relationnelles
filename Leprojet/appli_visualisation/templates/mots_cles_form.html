@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Recherche de mots-clés dans les mails</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+  <table class="barre" width="100%">
+    <tr>
+      <td width=80 align="center">
+        <img src="https://cdn1.iconfinder.com/data/icons/gradient-android-apps/64/1-22-128.png" height=40></img>
+        <br>
+        <a href="/appli_visualisation">
+          <span>Accueil</span>
+        </a>
+      </td>
+      <td align="center">
+        <font style="font-size:20px"><h1>Application de visualisation de données Enron</h1></font>
+      </td>
+    </tr>
+  </table>
+  
+  <h2 align="center">Recherche de mots-clés dans les mails</h2>
+  <form method="post">
+    {% csrf_token %}
+    <label for="key_words">Mots-clés :</label>
+    <input type="text" id="key_words" name="key_words" required>
+    <br><br>
+    <label for="presentation">Présentation :</label>
+    <select id="presentation" name="presentation">
+      <option value="expediteur">Par expéditeur</option>
+      <option value="destinataire">Par destinataire</option>
+    </select>
+    <br><br>
+    <input type="submit" value="Rechercher">
+  </form>
+</body>
+</html>

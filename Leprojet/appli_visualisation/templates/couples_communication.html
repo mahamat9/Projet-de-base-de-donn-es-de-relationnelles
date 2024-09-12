@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Application de visualisation de données Enron</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <style>
+    /* Styles CSS pour la mise en forme */
+    table {
+      width: 80%;
+      border-collapse: collapse;
+      margin: 20px auto;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .marge1 {
+      margin-left: 1.8em;
+    }
+    .marge2 {
+      margin-left: 1.5em;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container" width="100%">
+    <font style="font-size:20px"><h1 align="center">Application de visualisation de données Enron</h1></font>
+    <img class="marge1" src="https://cdn1.iconfinder.com/data/icons/gradient-android-apps/64/1-22-128.png" width = 40 height=40></img>
+    <br>
+    <a href="/appli_visualisation">
+      <span class="marge2">Accueil</span>
+    </a>
+  </div>
+
+  <h2 align="center">Recherche de couples d'employés</h2>
+
+  <h2 align="center">Résultats de la recherche</h2>
+  <a href="/appli_visualisation/couples_communication">
+    Retour à la recherche
+  </a>
+
+  {% if couples %}
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Expéditeur</th>
+          <th>Destinataire</th>
+          <th>Nombre de mails échangés</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for couple in couples %}
+          <tr>
+            <td>
+              <a href="/appli_visualisation/recherche_employes/?critere=email&valeur={{couple.0}}" target="_blank">
+                {{ couple.0 }}
+              </a>
+            </td>
+            <td>
+              <a href="/appli_visualisation/recherche_employes/?critere=email&valeur={{couple.1}}" target="_blank">
+                {{ couple.1 }}
+              </a>
+            </td>
+            <td>{{ couple.2 }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>Aucun résultat trouvé.</p>
+  {% endif %}
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Résultats de la recherche de mots-clés</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+  <div class="container" width="100%">
+    <font style="font-size:20px"><h1 align="center">Application de visualisation de données Enron</h1></font>
+    <img class="marge1" src="https://cdn1.iconfinder.com/data/icons/gradient-android-apps/64/1-22-128.png" width=40 height=40></img>
+    <br>
+    <a href="/appli_visualisation">
+      <span class="marge2">Accueil</span>
+    </a>
+  </div>
+
+  <h2 align="center">Résultats de la recherche de mots-clés</h2>
+  
+  {% if contenus %}
+    <ul>
+      {% for contenu in contenus %}
+        <li>
+          <a href="{% url 'message_detail' contenu.message_id %}">
+            {{ contenu.segment }} - Rang : {{ contenu.rank }}
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Aucun résultat trouvé pour les mots-clés spécifiés.</p>
+  {% endif %}
+  
+  <h2>Présentation par {{ presentation }}</h2>
+  <ul>
+    {% for employee in employees %}
+      <li>{{ employee.name }} ({{ employee.email }})</li>
+    {% endfor %}
+  </ul>
+</body>
+</html>

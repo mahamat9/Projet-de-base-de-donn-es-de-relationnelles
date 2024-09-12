@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Résultats de la recherche</title>
+  <style>
+    /* Styles CSS pour la mise en forme */
+    table {
+      width: 80%;
+      border-collapse: collapse;
+      margin: 20px auto;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .marge1 {
+      margin-left: 1.8em;
+    }
+    .marge2 {
+      margin-left: 1.5em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" width="100%">
+    <font style="font-size:20px"><h1 align="center">Application de visualisation de données Enron</h1></font>
+    <img class="marge1" src="https://cdn1.iconfinder.com/data/icons/gradient-android-apps/64/1-22-128.png" width = 40 height=40></img>
+    <br>
+    <a href="/appli_visualisation">
+      <span class="marge2">Accueil</span>
+    </a>
+  </div>
+  
+  <h1 align="center">Recherche des employés ayant communiqués avec un employé spécifique</h1>
+
+  <h2 align="center">Résultats de la recherche</h2>
+
+  <a href="/appli_visualisation/employee_communication">
+    Retour à la recherche
+  </a>
+
+  {% if employees %}
+    <table border="1" align="center">
+      <thead>
+        <tr>
+          <th>Prénom</th>
+          <th>Nom</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for employee in employees %}
+          <tr>
+            <td>{{ employee.1 }}</td>
+            <td>
+              <a href="/appli_visualisation/recherche_employes/?critere=nom&valeur={{employee.2}}" target="_blank">
+                {{ employee.2 }}
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p>Aucun résultat trouvé.</p>
+  {% endif %}
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Détails du Message</title>
+</head>
+<body>
+    <table class="barre" width="100%">
+        <tr>
+          <td width=80 align="center">
+            <img src="https://cdn1.iconfinder.com/data/icons/gradient-android-apps/64/1-22-128.png" height=40></img>
+            <br>
+            <a href="/appli_visualisation">
+              <span>Accueil</span>
+            </a>
+          </td>
+          <td align="center">
+            <font style="font-size:20px"><h1>Application de visualisation de données Enron</h1></font>
+          </td>
+        </tr>
+    </table>
+    <h1>Détails du Message</h1>
+    <p><strong>Envoyé le :</strong> {{ message.send_date }}</p>
+    <p><strong>De :</strong> {{ message.sender_email.email_address_name }}</p>
+    <p><strong>Sujet :</strong> {{ message.subject.subject_name }}</p>
+    <p><strong>Contenu :</strong> {{ message.content.text }}</p>
+    <a href="{% url 'contenu_conversations' %}">Retour à la liste des sujets</a>
+</body>
+</html>

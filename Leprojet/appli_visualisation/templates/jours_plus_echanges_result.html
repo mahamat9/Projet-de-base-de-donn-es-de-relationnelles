@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Application de visualisation de données Enron</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+  <table class="barre" width="100%">
+    <tr>
+      <td width=80 align="center">
+        <img src="https://cdn1.iconfinder.com/data/icons/gradient-android-apps/64/1-22-128.png" height=40>
+        <br>
+        <a href="/appli_visualisation">
+          <span>Accueil</span>
+        </a>
+      </td>
+      <td align="center">
+        <font style="font-size:20px"><h1>Application de visualisation de données Enron</h1></font>
+      </td>
+    </tr>
+  </table>
+
+  <h2 align="center">Résultats des Jours avec le Plus d'Échanges</h2>
+
+  <h2>Échanges Internes</h2>
+  <ul>
+    {% for day in internal_days %}
+      <li>{{ day.send_date }}: {{ day.total }} échanges</li>
+    {% endfor %}
+  </ul>
+
+  <h2>Échanges Internes-Externes</h2>
+  <ul>
+    {% for day in external_days %}
+      <li>{{ day.send_date }}: {{ day.total }} échanges</li>
+    {% endfor %}
+  </ul>
+
+  <h2>Histogramme des Échanges Internes</h2>
+  <canvas id="internalChart"></canvas>
+
+  <h2>Histogramme des Échanges Internes-Externes</h2>
+  <canvas id="externalChart"></canvas>
+
+  <script>
+    // Data for internal exchanges
+    const internalLabels = [
+      {% for day in internal_days %}
+        '{{ day.send_date }}',
+      {% endfor %}
+    ];
+    const internalData = {
+      labels: internalLabels,
+      datasets: [{
+        label: 'Échanges Internes',
+        data: [
+          {% for day in internal_days %}
+            {{ day.total }},
+          {% endfor %}
+        ],
+        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        borderColor: 'rgba(75, 192, 192, 1)',
+        borderWidth: 1
+      }]
+    };
+
+    // Data for internal-external exchanges
+    const externalLabels = [
+      {% for day in external_days %}
+        '{{ day.send_date }}',
+      {% endfor %}
+    ];
+    const externalData = {
+      labels: externalLabels,
+      datasets: [{
+        label: 'Échanges Internes-Externes',
+        data: [
+          {% for day in external_days %}
+            {{ day.total }},
+          {% endfor %}
+        ],
+        backgroundColor: 'rgba(255, 206, 86, 0.2)',
+        borderColor: 'rgba(255, 206, 86, 1)',
+        borderWidth: 1
+      }]
+    };
+
+    // Configurations for the charts
+    const configInternal = {
+      type: 'bar',
+      data: internalData,
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    };
+    const configExternal = {
+      type: 'bar',
+      data: externalData,
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    };
+
+    // Render the charts
+    const internalChart = new Chart(
+      document.getElementById('internalChart'),
+      configInternal
+    );
+    const externalChart = new Chart(
+      document.getElementById('externalChart'),
+      configExternal
+    );
+  </script>
+
+</body>
+</html>

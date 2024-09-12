@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Recherche d'employés par communication</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <style>
+    /* ... styles pour la mise en forme de la page ... */
+  </style>
+</head>
+<body>
+
+  <table class="barre" width="100%">
+    <tr>
+      <td width=80 align="center">
+        <img src="https://cdn1.iconfinder.com/data/icons/gradient-android-apps/64/1-22-128.png" height=40></img>
+        <br>
+        <a href="/appli_visualisation">
+          <span>Accueil</span>
+        </a>
+      </td>
+      <td align="center">
+        <font style="font-size:20px"><h1>Application de visualisation de données Enron</h1></font>
+      </td>
+    </tr>
+  </table>
+
+  <br>
+  <h2 align="center">Recherche des employés ayant communiqués avec un employé spécifique</h2>
+  <form method="post">
+    {% csrf_token %}
+    <label for="first_name">Prénom :</label>
+    <input type="text" name="first_name" required><br><br>
+    <label for="last_name">Nom :</label>
+    <input type="text" name="last_name" required><br><br>
+    <label for="start_date">Date de début :</label>
+    <input type="date" name="start_date" required><br><br>
+    <label for="end_date">Date de fin :</label>
+    <input type="date" name="end_date" required><br><br>
+    <button type="submit">Rechercher</button>
+  </form>
+</body>
+</html>

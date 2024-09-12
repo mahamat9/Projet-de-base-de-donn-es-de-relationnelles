@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Application de visualisation de données Enron</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <style>
+    /* ... styles pour la mise en forme de la page ... */
+  </style>
+</head>
+
+<body>
+
+  <table class="barre" width="100%">
+    <tr>
+      <td width=80 align="center">
+        <img src="https://cdn1.iconfinder.com/data/icons/gradient-android-apps/64/1-22-128.png" height=40></img>
+        <br>
+        <a href="/appli_visualisation">
+          <span>Accueil</span>
+        </a>
+      </td>
+      <td align="center">
+        <font style="font-size:20px"><h1>Application de visualisation de données Enron</h1></font>
+      </td>
+    </tr>
+  </table>
+
+  <br>
+
+  <h2 align="center">Recherche d'employés</h2>
+
+  <br><br>
+
+  <form action="/appli_visualisation/recherche_employes/" method="get"> <table class="mon_tableau1" align='center' width="50%">
+      <tr>
+        <td align="center" style="background: #D1DFF3">
+          <select name="critere" id="critere">
+            <option value="nom">Par nom</option>
+            <option value="email">Par email</option>
+          </select>
+        </td>
+        <td align='center'>
+          <input type="text" id="valeur" name="valeur" size="30" class="saisie" placeholder="Saisir le nom ou l'email">
+        </td>
+        <td align='center' style='color:white;background:#D1DFF3;'>
+          <input type="submit" value="Rechercher" class="bouton">
+        </td>
+      </tr>
+    </table>
+  </form>
+
+</body>
+</html>

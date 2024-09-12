@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Résultats de la recherche</title>
+  <meta charset="UTF-8">
+  <style>
+    /* Styles CSS pour la mise en forme */
+    table {
+      width: 80%;
+      border-collapse: collapse;
+      margin: 20px auto;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    .marge1 {
+      margin-left: 1.8em;
+    }
+    .marge2 {
+      margin-left: 1.5em;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" width="100%">
+    <font style="font-size:20px"><h1 align="center">Application de visualisation de données Enron</h1></font>
+    <img class="marge1" src="https://cdn1.iconfinder.com/data/icons/gradient-android-apps/64/1-22-128.png" width = 40 height=40></img>
+    <br>
+    <a href="/appli_visualisation">
+      <span class="marge2">Accueil</span>
+    </a>
+  </div>
+
+  <br>
+
+  <h2 align="center">Recherche d'employés</h2>
+
+  <br><br>
+
+  <form action="/appli_visualisation/recherche_employes/" method="get"> <div class="container" align='center' width="50%">
+      <tr>
+        <td align="center" style="background: #D1DFF3">
+          <select name="critere" id="critere">
+            <option value="nom">Par nom</option>
+            <option value="email">Par email</option>
+          </select>
+        </td>
+        <td align='center'>
+          <input type="text" id="valeur" name="valeur" size="30" class="saisie" placeholder="Saisir le nom ou l'email">
+        </td>
+        <td align='center' style='color:white;background:#D1DFF3;'>
+          <input type="submit" value="Rechercher" class="bouton">
+        </td>
+      </tr>
+    </div>
+  </form>
+
+  <h2 align="center">Résultats de la recherche</h2>
+
+  {% if employees %}
+    <table>
+      <tr>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Boîte aux lettres</th>
+        <th>Catégorie</th>
+        <th>Adresse e-mail</th>
+      </tr>
+      {% for employee in employees %}
+        <tr>
+          <td>{{ employee.0 }}</td>
+          <td>{{ employee.1 }}</td>
+          <td>{{ employee.2 }}</td>
+          <td>{{ employee.3 }}</td>
+          <td>{{ employee.4 }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% else %}
+    <p>Aucun résultat trouvé pour la recherche.</p>
+  {% endif %}
+
+</body>
+</html>
