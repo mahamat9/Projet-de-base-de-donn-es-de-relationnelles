@@ -1,5 +1,5 @@
-# Projet de base de données de relationnelles
-
+# Projet de base de données de relationnelles et Application Web sur les Données Enron
+Ce projet consiste à développer une application web permettant de visualiser et d'explorer les données de l'affaire Enron, qui nécessite en l'utilision d'une base de données relationnelle pour structurer, manipuler et interroger les données. L'objectif est de fournir un outil interactif et intuitif pour analyser les relations et découvrir les schémas au sein de ces données.
 # Guide de démarrage pour l'application de Visualisation d'Enron
 
 Ce guide fournit des instructions détaillées sur l'installation, le peuplement de la base de données, le lancement de l'application et son utilisation. Suivez ces étapes pour commencer à utiliser l'application Enron Data Visualization.
