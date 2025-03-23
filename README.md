@@ -1,4 +1,4 @@
-# Projet-de-base-de-données-de-relationnelles
+# Projet de base de données de relationnelles
 
 # Guide de démarrage pour l'application de Visualisation d'Enron
 
